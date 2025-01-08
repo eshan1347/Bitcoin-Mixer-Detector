@@ -1,2 +1,72 @@
-# LSTM-MIxer-Detection
-PyTorch implementation of data preprocessing &amp; mixer/tumbler detection model from cryptocurrency transactions
+# LSTM Mixer Detection for Cryptocurrency Transactions
+
+## Overview
+
+This repository contains the implementation of **LSTM-TC (LSTM Transaction Classifier)**, a novel deep learning-based method for detecting Bitcoin coin mixing transactions. Coin mixing techniques enhance transaction privacy by obscuring address linkages, making detection crucial for accurate blockchain analysis and Bitcoin address clustering.
+
+Our proposed method surpasses traditional rule-based and graph neural network-based approaches in recall and precision, enabling the detection of new and evolving coin mixing patterns.
+
+---
+
+## Key Features
+
+- **High Recall Detection**: Effective identification of coin mixing transactions, reducing false negatives.
+- **Deep Learning Approach**: Utilizes an LSTM-based classifier that leverages transaction trees for feature extraction and classification.
+- **Real-Time Processing**: Optimized for large-scale Bitcoin blockchain data with rapid transaction analysis.
+- **Address Clustering Improvement**: Enhances address clustering by accurately excluding coin mixing transactions.
+- **Dataset Included**: Comprehensive labeled datasets for training and testing, accessible in this repository.
+
+---
+
+## Methodology
+
+The LSTM-TC workflow involves three main steps:
+
+1. **Transaction Tree Extraction**:
+   - Precursor (N-level) and successor (M-level) transactions are traced to construct transaction trees.
+
+2. **Tree Serialization**:
+   - Each transaction tree layer is aggregated into fixed-length vectors using statistical features like input/output sums, transaction counts, and processing fees.
+
+3. **Classification**:
+   - Serialized sequences are passed through an LSTM-based model, which outputs a classification score indicating whether a transaction is a coin mixing instance.
+
+---
+
+## Results
+
+### Performance Metrics
+
+| **Model**      | **Precision** | **Recall** | **F1-Score** | **ROC-AUC-Score** |
+|-----------------|---------------|------------|--------------|--------------|
+| LSTM-TC        | 0.966         | 0.961      | 0.964        | 0.964        |
+| Rule-Based     | 0.821         | 0.650      | 0.722        | 0.964        |
+| GCN Classifier | 0.579         | 0.654      | 0.614        | 0.964        |
+
+Following are the Results achieved by me on the Dev Dataset after training on 500 epochs with a subset[25%] of original training data: 
+ - Avg Accuracy: 0.8992745535714286
+ - Avg Precision: 0.9155580885733609
+ - Avg Recall: 0.8804509101539322
+ - Avg F1 score: 0.8973077397184309
+ - Avg ROC-AUC score: 0.8994153705695987
+
+### Address Clustering
+
+Our approach improves clustering accuracy by reducing misclassifications, significantly outperforming baseline methods.
+
+---
+
+## Installation
+
+### Prerequisites
+- Python >= 3.8
+- PyTorch >= 1.7
+- Scikit-learn >= 0.24
+- GPU support (optional but recommended)
+
+### Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/bitcoin-lstm-tc.git
+   cd bitcoin-lstm-tc
