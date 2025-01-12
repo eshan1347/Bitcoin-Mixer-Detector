@@ -6,7 +6,8 @@ This repository contains the implementation of **LSTM-TC (LSTM Transaction Class
 
 It surpasses traditional rule-based and graph neural network-based approaches in recall and precision, enabling the detection of new and evolving coin mixing patterns. Along with changes to the base model & the training, I have also added a script to convert transactions into the required input & output transactio tree. The original paper does not provide any information on the features , they have used & Hence , the features I am using are estimates based on experimentation.  
 
-The dataset & paper are available at : [Google Drive](https://drive.google.com/drive/folders/1srpyBEXbaDhLg5juEQh-I71IxUA3JYx1) [Original paper](https://link.springer.com/article/10.1007/s10489-021-02453-9)
+The dataset & paper are available at : [Google Drive](https://drive.google.com/drive/folders/1srpyBEXbaDhLg5juEQh-I71IxUA3JYx1) 
+                                       [Original paper](https://link.springer.com/article/10.1007/s10489-021-02453-9)
 
 ---
 
