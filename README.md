@@ -21,6 +21,15 @@ The dataset & paper are available at :
 - **Dataset Included**: Comprehensive labeled datasets for training and testing, accessible in this repository.
 
 ---
+## Project Structure
+```
+.
+├── mixer_lstm.pt  # PyTorch trained model weights 
+├── mixer_detect.py # Code to load mixer model & use it against transactions declared in an array.
+├── requirements.txt # Python package requirements
+├── model.ipynb # Contains the base model code as well as Custom Dataset , Model Training , Evaluation & Inference methods.
+└── README.md  # This file
+```
 
 ## Methodology
 
@@ -35,7 +44,29 @@ The LSTM-TC workflow involves three main steps:
 3. **Classification**:
    - Serialized sequences are passed through an LSTM-based model, which outputs a classification score indicating whether a transaction is a coin mixing instance.
 
+These are the 15 bitcoin features which are used : 
+
+- transaction_hash:
+- input_amount_sum:
+- output_amount_sum: 
+- transaction_fee:
+- input_amount_std_dev:
+- output_amount_std_dev:
+- input_count_avg:
+- transaction_size:
+- avg_input_amount:
+- output_count_avg:
+- avg_output_amount:
+- input_address_count:
+- output_address_count:
+- transaction_weight:
+- lock_time:
+- is_coinbase:
+
+These 15 features are aggregated [ sum, max, min, std, mean ] level wise from the transaction tree to get 78 features for each level to get the processed pre-cursor & post-cursor tree which can be passed as input to the model.
+
 ---
+
 
 ## Results
 
@@ -69,3 +100,7 @@ Following are the Results achieved by me on the Dev Dataset after training on 50
    ```bash
    git clone https://github.com/your-username/bitcoin-lstm-tc.git
    cd bitcoin-lstm-tc
+2. Run mixer_detect.py :
+   ```bash
+   python mixer_detect.py
+
