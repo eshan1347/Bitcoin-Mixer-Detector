@@ -4,7 +4,9 @@
 
 This repository contains the implementation of **LSTM-TC (LSTM Transaction Classifier)**, a novel deep learning-based method for detecting Bitcoin coin mixing transactions. Coin mixing techniques enhance transaction privacy by obscuring address linkages, making detection crucial for accurate blockchain analysis and Bitcoin address clustering.
 
-Our proposed method surpasses traditional rule-based and graph neural network-based approaches in recall and precision, enabling the detection of new and evolving coin mixing patterns.
+It surpasses traditional rule-based and graph neural network-based approaches in recall and precision, enabling the detection of new and evolving coin mixing patterns. Along with changes to the base model & the training, I have also added a script to convert transactions into the required input & output transactio tree. The original paper does not provide any information on the features , they have used & Hence , the features I am using are estimates based on experimentation.  
+
+The dataset & paper are available at : [Google Drive](https://drive.google.com/drive/folders/1srpyBEXbaDhLg5juEQh-I71IxUA3JYx1) [Original paper](https://link.springer.com/article/10.1007/s10489-021-02453-9)
 
 ---
 
@@ -13,7 +15,7 @@ Our proposed method surpasses traditional rule-based and graph neural network-ba
 - **High Recall Detection**: Effective identification of coin mixing transactions, reducing false negatives.
 - **Deep Learning Approach**: Utilizes an LSTM-based classifier that leverages transaction trees for feature extraction and classification.
 - **Real-Time Processing**: Optimized for large-scale Bitcoin blockchain data with rapid transaction analysis.
-- **Address Clustering Improvement**: Enhances address clustering by accurately excluding coin mixing transactions.
+- **Transaction Tree Extractor**: Creates pre & post cursor tree based on transaction data which are inputs to the LSTM model.
 - **Dataset Included**: Comprehensive labeled datasets for training and testing, accessible in this repository.
 
 ---
@@ -50,11 +52,6 @@ Following are the Results achieved by me on the Dev Dataset after training on 50
  - Avg F1 score: 0.8973077397184309
  - Avg ROC-AUC score: 0.8994153705695987
 
-### Address Clustering
-
-Our approach improves clustering accuracy by reducing misclassifications, significantly outperforming baseline methods.
-
----
 
 ## Installation
 
